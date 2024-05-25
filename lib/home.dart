@@ -11,161 +11,165 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.white,
         body: SafeArea(
-      child: AnnotatedRegion(
-        value: const SystemUiOverlayStyle(
-          statusBarColor: Colors.transparent,
-          statusBarIconBrightness: Brightness.dark,
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: AnnotatedRegion(
+            value: const SystemUiOverlayStyle(
+              statusBarColor: Colors.transparent,
+              statusBarIconBrightness: Brightness.dark,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        "Hallo, ALFIAN",
-                        style: TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.w700,
-                            color: Colors.black.withOpacity(0.7)),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Hallo, ALFIAN",
+                            style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.black.withOpacity(0.7)),
+                          ),
+                          Text(
+                            "Control your car",
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.black.withOpacity(0.5)),
+                          ),
+                        ],
                       ),
-                      Text(
-                        "Control your car",
-                        style: TextStyle(
-                            fontSize: 20, color: Colors.black.withOpacity(0.5)),
-                      ),
-                    ],
-                  ),
-                  SvgPicture.asset(
-                    'lib/assets/profile11.svg',
-                    height: 50,
-                  )
-                ],
-              ),
-              ClipRect(
-                child: Align(
-                  heightFactor: 0.5,
-                  child: SizedBox(
-                    height: 400,
-                    width: 350,
-                    child: O3D.asset(
-                      src: 'lib/assets/hyundai_ioniq_5_-_lowpoly.glb',
-                      controller: controller,
-                      ar: false,
-                      disableTap: true,
-                      disableZoom: true,
-                      disablePan: true,
-                      autoRotate: true,
-                    ),
-                  ),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                        color: Colors.green.shade100.withOpacity(0.4),
-                        borderRadius: BorderRadius.circular(1000)),
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 10, horizontal: 20),
-                    child: const Text(
-                      "Car is active",
-                      style: TextStyle(
-                          color: Colors.green,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text(
-                        'Car Type',
-                        style: TextStyle(color: Colors.black.withOpacity(0.5)),
-                      ),
-                      Text(
-                        "Hyundai ioniq 5",
-                        style: TextStyle(
-                            color: Colors.black.withOpacity(0.7),
-                            fontWeight: FontWeight.w600),
+                      SvgPicture.asset(
+                        'lib/assets/profile11.svg',
+                        height: 50,
                       )
                     ],
+                  ),
+                  ClipRect(
+                    child: Align(
+                      heightFactor: 0.5,
+                      child: SizedBox(
+                        height: 400,
+                        width: 350,
+                        child: O3D.asset(
+                          src: 'lib/assets/hyundai_ioniq_5_-_lowpoly.glb',
+                          controller: controller,
+                          ar: false,
+                          disableTap: true,
+                          disableZoom: true,
+                          disablePan: true,
+                          autoRotate: true,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.green.shade100.withOpacity(0.4),
+                            borderRadius: BorderRadius.circular(1000)),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 20),
+                        child: const Text(
+                          "Car is active",
+                          style: TextStyle(
+                              color: Colors.green,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            'Car Type',
+                            style:
+                                TextStyle(color: Colors.black.withOpacity(0.5)),
+                          ),
+                          Text(
+                            "Hyundai ioniq 5",
+                            style: TextStyle(
+                                color: Colors.black.withOpacity(0.7),
+                                fontWeight: FontWeight.w600),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    'Car information',
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.black.withOpacity(0.8),
+                        fontWeight: FontWeight.w600),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Expanded(
+                    child: GridView(
+                      physics: const NeverScrollableScrollPhysics(),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 20,
+                        mainAxisSpacing: 20,
+                      ),
+                      children: const [
+                        TileMenu(
+                          // selected: true,
+                          title: "Battery",
+                          content: "80%",
+                          icon: Icon(
+                            Icons.battery_full,
+                            color: Colors.white,
+                          ),
+                        ),
+                        TileMenu(
+                          // selected: false,
+                          title: "Speed",
+                          content: "60 km/h",
+                          icon: Icon(
+                            Icons.speed,
+                            color: Colors.white,
+                          ),
+                        ),
+                        TileMenu(
+                          // selected: false,
+                          title: "Distance",
+                          content: "100 km",
+                          icon: Icon(
+                            Icons.directions_car,
+                            color: Colors.white,
+                          ),
+                        ),
+                        TileMenu(
+                          // selected: false,
+                          title: "Temperature",
+                          content: "30°C",
+                          icon: Icon(
+                            Icons.thermostat,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
                   )
                 ],
               ),
-              const SizedBox(
-                height: 20,
-              ),
-              Text(
-                'Car information',
-                style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.black.withOpacity(0.8),
-                    fontWeight: FontWeight.w600),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Expanded(
-                child: GridView(
-                  physics: const NeverScrollableScrollPhysics(),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 20,
-                    mainAxisSpacing: 20,
-                  ),
-                  children: const [
-                    TileMenu(
-                      // selected: true,
-                      title: "Battery",
-                      content: "80%",
-                      icon: Icon(
-                        Icons.battery_full,
-                        color: Colors.white,
-                      ),
-                    ),
-                    TileMenu(
-                      // selected: false,
-                      title: "Speed",
-                      content: "60 km/h",
-                      icon: Icon(
-                        Icons.speed,
-                        color: Colors.white,
-                      ),
-                    ),
-                    TileMenu(
-                      // selected: false,
-                      title: "Distance",
-                      content: "100 km",
-                      icon: Icon(
-                        Icons.directions_car,
-                        color: Colors.white,
-                      ),
-                    ),
-                    TileMenu(
-                      // selected: false,
-                      title: "Temperature",
-                      content: "30°C",
-                      icon: Icon(
-                        Icons.thermostat,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-              )
-            ],
+            ),
           ),
-        ),
-      ),
-    ));
+        ));
   }
 }
 
