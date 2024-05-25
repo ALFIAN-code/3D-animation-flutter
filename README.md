@@ -1,6 +1,11 @@
 # flutter_3d_animation
 
-A new Flutter project.haHAHAHA
+<h3> online preview </h3>
+<a href="https://alfian-code.github.io/3D-animation-flutter/">Online preview here</a>
+<h3>Result</h3>
+
+![image](https://github.com/ALFIAN-code/3D-animation-flutter/assets/82469267/059a09fd-66df-4339-8ca1-5fdb45595e57)
+
 
 ## Getting Started
 
